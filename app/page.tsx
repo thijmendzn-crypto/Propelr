@@ -7,7 +7,7 @@ import TestimonialCard from '@/components/TestimonialCard'
 import CTABanner from '@/components/CTABanner'
 import CountUp from '@/components/CountUp'
 
-const CALENDLY_URL = 'https://calendly.com/propelr/30min'
+const CALENDLY_URL = 'https://calendly.com/businessecomthijmen/30min'
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },

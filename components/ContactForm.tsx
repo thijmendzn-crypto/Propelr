@@ -1,6 +1,6 @@
 'use client'
 
-const CALENDLY_URL = 'https://calendly.com/propelr/30min'
+const CALENDLY_URL = 'https://calendly.com/businessecomthijmen/30min'
 
 export default function ContactForm() {
   const inputStyle: React.CSSProperties = {
