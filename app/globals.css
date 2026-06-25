@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
+@source "../app/**/*.{tsx,ts}";
+@source "../components/**/*.{tsx,ts}";
+
 @theme {
   --color-brand: #AAFF00;
   --color-background: #0A0A0A;
@@ -8,10 +11,8 @@
   --font-sans: 'Inter', sans-serif;
 }
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html {
@@ -19,11 +20,14 @@ html {
 }
 
 body {
+  margin: 0;
+  padding: 0;
   background-color: #0A0A0A;
   color: #ffffff;
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 ::selection {
@@ -31,26 +35,41 @@ body {
   color: #ffffff;
 }
 
-::-webkit-scrollbar {
-  width: 6px;
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0A0A0A; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+
+/* Layout helpers */
+.container-xl {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
-::-webkit-scrollbar-track {
-  background: #0A0A0A;
+.section-pad {
+  padding-top: 96px;
+  padding-bottom: 96px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
+@media (min-width: 768px) {
+  .section-pad {
+    padding-top: 128px;
+    padding-bottom: 128px;
+  }
 }
 
+/* Grid */
 .grid-bg {
   background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
+/* Cards */
 .glass-card {
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(12px);
@@ -59,6 +78,7 @@ body {
   border-radius: 16px;
 }
 
+/* Buttons */
 .btn-primary {
   background: #AAFF00;
   color: #000000;
@@ -69,13 +89,16 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   cursor: pointer;
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
 }
 
 .btn-primary:hover {
-  box-shadow: 0 0 24px rgba(170, 255, 0, 0.4);
+  box-shadow: 0 0 28px rgba(170, 255, 0, 0.45);
   transform: translateY(-1px);
 }
 
@@ -92,10 +115,17 @@ body {
   justify-content: center;
   cursor: pointer;
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 .btn-secondary:hover {
   border-color: rgba(255, 255, 255, 0.6);
   transform: translateY(-1px);
+}
+
+/* Section divider */
+.section-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }

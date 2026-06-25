@@ -11,45 +11,24 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer
-      style={{
-        background: '#0A0A0A',
-        borderTop: '1px solid rgba(255,255,255,0.06)',
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <span
-              className="w-6 h-6 rounded flex items-center justify-center text-black font-bold text-xs"
-              style={{ background: '#AAFF00' }}
-            >
-              P
-            </span>
-            <span className="text-white font-semibold">Propelr</span>
+    <footer style={{ background: '#080808', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '48px 24px' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '24px' }}>
+          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
+            <span style={{ width: '24px', height: '24px', borderRadius: '5px', background: '#AAFF00', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#000', fontWeight: 800, fontSize: '11px' }}>P</span>
+            <span style={{ color: '#fff', fontWeight: 700, fontSize: '0.9rem' }}>Propelr</span>
           </Link>
 
-          {/* Nav */}
-          <nav className="flex items-center gap-6">
+          <nav style={{ display: 'flex', alignItems: 'center', gap: '28px' }}>
             {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm transition-colors duration-200"
-                style={{ color: 'rgba(255,255,255,0.5)' }}
-                onMouseEnter={(e) => ((e.target as HTMLElement).style.color = '#ffffff')}
-                onMouseLeave={(e) => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.5)')}
-              >
-                {link.label}
-              </Link>
+              <Link key={link.href} href={link.href} style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)', textDecoration: 'none', transition: 'color 200ms ease' }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.8)')}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.4)')}
+              >{link.label}</Link>
             ))}
           </nav>
 
-          {/* Copyright */}
-          <p className="text-sm" style={{ color: 'rgba(255,255,255,0.3)' }}>
-            © 2025 Propelr. All rights reserved.
-          </p>
+          <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.25)' }}>© 2025 Propelr. All rights reserved.</p>
         </div>
       </div>
     </footer>

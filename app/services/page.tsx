@@ -26,43 +26,45 @@ const aiFeatures = [
 
 function FeatureCheck({ text }: { text: string }) {
   return (
-    <li className="flex items-start gap-3">
-      <span className="mt-1 shrink-0">
+    <li style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+      <span style={{ marginTop: '2px', flexShrink: 0 }}>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
           <circle cx="12" cy="12" r="10" fill="rgba(170,255,0,0.12)" />
           <path d="M8 12l3 3 5-5" stroke="#AAFF00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </span>
-      <span className="text-base" style={{ color: 'rgba(255,255,255,0.75)' }}>{text}</span>
+      <span style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.5 }}>{text}</span>
     </li>
   )
 }
 
 function PricingBadge({ text }: { text: string }) {
   return (
-    <div
-      className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold"
-      style={{ background: 'rgba(170,255,0,0.1)', border: '1px solid rgba(170,255,0,0.25)', color: '#AAFF00' }}
-    >
+    <span style={{
+      display: 'inline-flex', alignItems: 'center',
+      padding: '8px 16px', borderRadius: '100px',
+      background: 'rgba(170,255,0,0.08)', border: '1px solid rgba(170,255,0,0.25)',
+      color: '#AAFF00', fontSize: '0.85rem', fontWeight: 600,
+    }}>
       {text}
-    </div>
+    </span>
   )
 }
 
 function PlaceholderVisual({ label }: { label: string }) {
   return (
-    <div
-      className="w-full aspect-video rounded-2xl flex items-center justify-center"
-      style={{ background: '#111111', border: '1px solid rgba(255,255,255,0.08)' }}
-    >
-      <div className="text-center">
-        <div
-          className="w-10 h-10 rounded-md flex items-center justify-center text-black font-bold text-lg mx-auto mb-3"
-          style={{ background: '#AAFF00' }}
-        >
-          P
-        </div>
-        <span className="text-sm" style={{ color: 'rgba(255,255,255,0.2)' }}>{label}</span>
+    <div style={{
+      width: '100%', aspectRatio: '16/9', borderRadius: '20px',
+      background: '#111111', border: '1px solid rgba(255,255,255,0.07)',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+    }}>
+      <div style={{ textAlign: 'center' }}>
+        <div style={{
+          width: '44px', height: '44px', borderRadius: '10px',
+          background: '#AAFF00', display: 'flex', alignItems: 'center', justifyContent: 'center',
+          color: '#000', fontWeight: 800, fontSize: '1.2rem', margin: '0 auto 12px',
+        }}>P</div>
+        <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.2)' }}>{label}</span>
       </div>
     </div>
   )
@@ -72,81 +74,67 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section
-        className="pt-40 pb-24 text-center relative overflow-hidden grid-bg"
-        style={{ background: '#0A0A0A' }}
-      >
-        <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(170,255,0,0.06) 0%, transparent 70%)' }}
-        />
-        <div className="relative max-w-4xl mx-auto px-6">
+      <section className="grid-bg" style={{ background: '#0A0A0A', paddingTop: '160px', paddingBottom: '96px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '600px', height: '400px', background: 'radial-gradient(ellipse at center, rgba(170,255,0,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div className="container-xl" style={{ position: 'relative' }}>
           <AnimatedSection>
-            <p className="text-xs font-medium uppercase tracking-widest mb-4" style={{ color: '#AAFF00' }}>
-              Our services
-            </p>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Our Services</h1>
-            <p className="text-xl" style={{ color: 'rgba(255,255,255,0.5)' }}>
-              Built for results. Delivered on time.
-            </p>
+            <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#AAFF00', marginBottom: '16px' }}>Our services</p>
+            <h1 style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: '20px' }}>Our Services</h1>
+            <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.5)' }}>Built for results. Delivered on time.</p>
           </AnimatedSection>
         </div>
       </section>
 
+      <hr className="section-divider" />
+
       {/* Block 1 — Websites */}
-      <section className="py-24 md:py-32" style={{ background: '#0A0A0A' }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="section-pad" style={{ background: '#0A0A0A' }}>
+        <div className="container-xl">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '64px', alignItems: 'center' }}>
             <AnimatedSection>
               <PlaceholderVisual label="Premium Website Preview" />
             </AnimatedSection>
             <AnimatedSection delay={0.1}>
-              <p className="text-xs font-medium uppercase tracking-widest mb-4" style={{ color: '#AAFF00' }}>
-                Service 01
-              </p>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Premium Websites</h2>
-              <p className="text-lg mb-8 leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>
+              <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#AAFF00', marginBottom: '16px' }}>Service 01</p>
+              <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '20px' }}>Premium Websites</h2>
+              <p style={{ fontSize: '1rem', lineHeight: 1.7, color: 'rgba(255,255,255,0.6)', marginBottom: '32px' }}>
                 No Squarespace templates. We build blazing-fast, fully custom websites that convince and convert your visitors.
               </p>
-              <ul className="flex flex-col gap-4 mb-8">
+              <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 32px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 {websiteFeatures.map((f) => <FeatureCheck key={f} text={f} />)}
               </ul>
-              <div className="flex flex-wrap gap-3 mb-8">
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '32px' }}>
                 <PricingBadge text="From €1,499 one-time" />
                 <PricingBadge text="or from €97/month" />
               </div>
-              <Link href="/contact" className="btn-primary">
-                Start your website
-              </Link>
+              <Link href="/contact" className="btn-primary">Start your website</Link>
             </AnimatedSection>
           </div>
         </div>
       </section>
 
-      {/* Block 2 — AI Automations */}
-      <section className="py-24 md:py-32" style={{ background: '#111111' }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <AnimatedSection delay={0.1} className="lg:order-2">
+      <hr className="section-divider" />
+
+      {/* Block 2 — AI */}
+      <section className="section-pad" style={{ background: '#0d0d0d' }}>
+        <div className="container-xl">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '64px', alignItems: 'center' }}>
+            <AnimatedSection delay={0.1} style={{ order: 1 }}>
               <PlaceholderVisual label="AI Automation Dashboard" />
             </AnimatedSection>
-            <AnimatedSection className="lg:order-1">
-              <p className="text-xs font-medium uppercase tracking-widest mb-4" style={{ color: '#AAFF00' }}>
-                Service 02
-              </p>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">AI Automations</h2>
-              <p className="text-lg mb-8 leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>
+            <AnimatedSection style={{ order: 0 }}>
+              <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#AAFF00', marginBottom: '16px' }}>Service 02</p>
+              <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '20px' }}>AI Automations</h2>
+              <p style={{ fontSize: '1rem', lineHeight: 1.7, color: 'rgba(255,255,255,0.6)', marginBottom: '32px' }}>
                 Stop doing repetitive tasks. Our AI systems work 24/7 so you can focus on what really matters — your clients.
               </p>
-              <ul className="flex flex-col gap-4 mb-8">
+              <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 32px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 {aiFeatures.map((f) => <FeatureCheck key={f} text={f} />)}
               </ul>
-              <div className="flex flex-wrap gap-3 mb-8">
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '32px' }}>
                 <PricingBadge text="From €499/month" />
               </div>
-              <Link href="/contact" className="btn-primary">
-                Start automating
-              </Link>
+              <Link href="/contact" className="btn-primary">Start automating</Link>
             </AnimatedSection>
           </div>
         </div>

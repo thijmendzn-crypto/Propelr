@@ -5,112 +5,68 @@ import AnimatedSection from '@/components/AnimatedSection'
 import CTABanner from '@/components/CTABanner'
 
 const projects = [
-  {
-    title: 'VD Plumbing — Website Redesign',
-    industry: 'Plumbing Services',
-    result: '+40% conversions in 30 days',
-    category: 'Websites',
-    color: '#1a2a1a',
-  },
-  {
-    title: 'FreshBrands NL — AI Lead System',
-    industry: 'Marketing & Branding',
-    result: '10+ hours saved per week',
-    category: 'AI Automations',
-    color: '#1a1a2a',
-  },
-  {
-    title: 'TechFlow B.V. — Full-Stack Platform',
-    industry: 'SaaS / Tech',
-    result: '3x more qualified leads',
-    category: 'Websites',
-    color: '#1a2020',
-  },
-  {
-    title: 'GreenOps — Automation Suite',
-    industry: 'Operations & Logistics',
-    result: '60% less manual work',
-    category: 'AI Automations',
-    color: '#201a1a',
-  },
-  {
-    title: 'Studio Voss — Portfolio + Booking',
-    industry: 'Creative Agency',
-    result: '+85% website traffic',
-    category: 'Websites',
-    color: '#1e1a1e',
-  },
-  {
-    title: 'Maxflow CRM — AI Customer Service',
-    industry: 'CRM / Sales',
-    result: '24/7 customer support active',
-    category: 'AI Automations',
-    color: '#1a1e1a',
-  },
+  { title: 'VD Plumbing — Website Redesign', industry: 'Plumbing Services', result: '+40% conversions in 30 days', category: 'Websites', bg: 'linear-gradient(135deg, #0f1f10 0%, #1a2a1a 100%)' },
+  { title: 'FreshBrands NL — AI Lead System', industry: 'Marketing & Branding', result: '10+ hours saved per week', category: 'AI Automations', bg: 'linear-gradient(135deg, #0f0f1f 0%, #1a1a2a 100%)' },
+  { title: 'TechFlow B.V. — Full-Stack Platform', industry: 'SaaS / Tech', result: '3x more qualified leads', category: 'Websites', bg: 'linear-gradient(135deg, #0f1a1a 0%, #1a2020 100%)' },
+  { title: 'GreenOps — Automation Suite', industry: 'Operations & Logistics', result: '60% less manual work', category: 'AI Automations', bg: 'linear-gradient(135deg, #1a0f0f 0%, #201a1a 100%)' },
+  { title: 'Studio Voss — Portfolio + Booking', industry: 'Creative Agency', result: '+85% website traffic', category: 'Websites', bg: 'linear-gradient(135deg, #180f1a 0%, #1e1a1e 100%)' },
+  { title: 'Maxflow CRM — AI Customer Service', industry: 'CRM / Sales', result: '24/7 customer support active', category: 'AI Automations', bg: 'linear-gradient(135deg, #0f1a0f 0%, #1a1e1a 100%)' },
 ]
 
 const categories = ['All', 'Websites', 'AI Automations']
 
 export default function WorkPage() {
   const [active, setActive] = useState('All')
-
   const filtered = active === 'All' ? projects : projects.filter((p) => p.category === active)
 
   return (
     <>
-      {/* Hero */}
-      <section
-        className="pt-40 pb-24 text-center relative overflow-hidden grid-bg"
-        style={{ background: '#0A0A0A' }}
-      >
-        <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(170,255,0,0.06) 0%, transparent 70%)' }}
-        />
-        <div className="relative max-w-4xl mx-auto px-6">
+      <section className="grid-bg" style={{ background: '#0A0A0A', paddingTop: '160px', paddingBottom: '96px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '600px', height: '400px', background: 'radial-gradient(ellipse at center, rgba(170,255,0,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div className="container-xl" style={{ position: 'relative' }}>
           <AnimatedSection>
-            <p className="text-xs font-medium uppercase tracking-widest mb-4" style={{ color: '#AAFF00' }}>
-              Portfolio
-            </p>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Our Work</h1>
-            <p className="text-xl" style={{ color: 'rgba(255,255,255,0.5)' }}>
-              Projects that deliver results
-            </p>
+            <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#AAFF00', marginBottom: '16px' }}>Portfolio</p>
+            <h1 style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: '20px' }}>Our Work</h1>
+            <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.5)' }}>Projects that deliver results</p>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Work Grid */}
-      <section className="py-16 md:py-24" style={{ background: '#0A0A0A' }}>
-        <div className="max-w-7xl mx-auto px-6">
+      <hr className="section-divider" />
+
+      <section className="section-pad" style={{ background: '#0A0A0A' }}>
+        <div className="container-xl">
           {/* Filter */}
-          <AnimatedSection className="flex gap-3 mb-12 flex-wrap">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActive(cat)}
-                className="text-sm font-medium px-5 py-2 rounded-full transition-all duration-200"
-                style={{
-                  background: active === cat ? '#AAFF00' : 'rgba(255,255,255,0.04)',
-                  color: active === cat ? '#000' : 'rgba(255,255,255,0.6)',
-                  border: active === cat ? '1px solid #AAFF00' : '1px solid rgba(255,255,255,0.08)',
-                }}
-              >
-                {cat}
-              </button>
-            ))}
+          <AnimatedSection>
+            <div style={{ display: 'flex', gap: '10px', marginBottom: '48px', flexWrap: 'wrap' }}>
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActive(cat)}
+                  style={{
+                    fontSize: '0.85rem', fontWeight: 600, padding: '10px 20px', borderRadius: '100px',
+                    cursor: 'pointer', transition: 'all 200ms ease', border: 'none', fontFamily: 'inherit',
+                    background: active === cat ? '#AAFF00' : 'rgba(255,255,255,0.05)',
+                    color: active === cat ? '#000' : 'rgba(255,255,255,0.6)',
+                    outline: active === cat ? 'none' : '1px solid rgba(255,255,255,0.08)',
+                  }}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
           </AnimatedSection>
 
           {/* Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px' }}>
             {filtered.map((project, i) => (
               <AnimatedSection key={project.title} delay={i * 0.08}>
                 <div
-                  className="glass-card overflow-hidden group cursor-pointer"
-                  style={{ transition: 'all 200ms ease' }}
+                  className="glass-card"
+                  style={{ overflow: 'hidden', transition: 'all 200ms ease', cursor: 'pointer' }}
                   onMouseEnter={(e) => {
                     const el = e.currentTarget as HTMLElement
-                    el.style.transform = 'translateY(-4px) scale(1.01)'
+                    el.style.transform = 'translateY(-4px)'
                     el.style.borderColor = 'rgba(255,255,255,0.15)'
                   }}
                   onMouseLeave={(e) => {
@@ -119,36 +75,20 @@ export default function WorkPage() {
                     el.style.borderColor = 'rgba(255,255,255,0.08)'
                   }}
                 >
-                  <div
-                    className="w-full aspect-video flex items-center justify-center relative"
-                    style={{ background: project.color }}
-                  >
-                    <div className="text-center">
-                      <div
-                        className="w-10 h-10 rounded-md flex items-center justify-center text-black font-bold text-lg mx-auto mb-2"
-                        style={{ background: '#AAFF00' }}
-                      >
-                        P
-                      </div>
-                      <span className="text-xs" style={{ color: 'rgba(255,255,255,0.2)' }}>Propelr</span>
+                  <div style={{ aspectRatio: '16/9', background: project.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+                    <div style={{ textAlign: 'center' }}>
+                      <div style={{ width: '40px', height: '40px', borderRadius: '8px', background: '#AAFF00', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#000', fontWeight: 800, fontSize: '1rem', margin: '0 auto 8px' }}>P</div>
+                      <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.2)' }}>Propelr</span>
                     </div>
-                    <span
-                      className="absolute top-3 right-3 text-xs font-medium px-2.5 py-1 rounded-full"
-                      style={{ background: 'rgba(170,255,0,0.15)', color: '#AAFF00', border: '1px solid rgba(170,255,0,0.2)' }}
-                    >
+                    <span style={{ position: 'absolute', top: '12px', right: '12px', fontSize: '0.7rem', fontWeight: 700, padding: '4px 10px', borderRadius: '100px', background: 'rgba(170,255,0,0.15)', color: '#AAFF00', border: '1px solid rgba(170,255,0,0.2)' }}>
                       {project.category}
                     </span>
                   </div>
-                  <div className="p-6">
-                    <p className="text-xs mb-1" style={{ color: 'rgba(255,255,255,0.4)' }}>{project.industry}</p>
-                    <h3 className="text-lg font-semibold mb-3">{project.title}</h3>
-                    <p className="text-sm font-medium mb-4" style={{ color: '#AAFF00' }}>{project.result}</p>
-                    <span
-                      className="text-sm font-medium inline-flex items-center gap-1.5"
-                      style={{ color: 'rgba(255,255,255,0.5)' }}
-                    >
-                      View case study →
-                    </span>
+                  <div style={{ padding: '24px' }}>
+                    <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.35)', marginBottom: '6px' }}>{project.industry}</p>
+                    <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '10px', letterSpacing: '-0.01em' }}>{project.title}</h3>
+                    <p style={{ fontSize: '0.875rem', fontWeight: 600, color: '#AAFF00', marginBottom: '16px' }}>{project.result}</p>
+                    <span style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)' }}>View case study →</span>
                   </div>
                 </div>
               </AnimatedSection>

@@ -22,47 +22,37 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  useEffect(() => {
-    setMenuOpen(false)
-  }, [pathname])
+  useEffect(() => { setMenuOpen(false) }, [pathname])
 
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-      style={{
-        background: scrolled ? 'rgba(10,10,10,0.92)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(16px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : 'none',
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16 md:h-20">
+    <header style={{
+      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
+      transition: 'all 300ms ease',
+      background: scrolled ? 'rgba(10,10,10,0.92)' : 'transparent',
+      backdropFilter: scrolled ? 'blur(20px)' : 'none',
+      borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : 'none',
+    }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
+
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <span
-            className="w-7 h-7 rounded-md flex items-center justify-center text-black font-bold text-sm"
-            style={{ background: '#AAFF00' }}
-          >
-            P
-          </span>
-          <span className="text-white font-semibold text-lg tracking-tight">Propelr</span>
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
+          <span style={{ width: '28px', height: '28px', borderRadius: '6px', background: '#AAFF00', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#000', fontWeight: 800, fontSize: '13px', flexShrink: 0 }}>P</span>
+          <span style={{ color: '#fff', fontWeight: 700, fontSize: '1rem', letterSpacing: '-0.02em' }}>Propelr</span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav style={{ display: 'flex', alignItems: 'center', gap: '36px' }}>
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium transition-colors duration-200"
               style={{
-                color: pathname === link.href ? '#AAFF00' : 'rgba(255,255,255,0.6)',
+                fontSize: '0.875rem', fontWeight: 500, textDecoration: 'none',
+                color: pathname === link.href ? '#AAFF00' : 'rgba(255,255,255,0.55)',
+                transition: 'color 200ms ease',
               }}
-              onMouseEnter={(e) => {
-                if (pathname !== link.href) (e.target as HTMLElement).style.color = '#ffffff'
-              }}
-              onMouseLeave={(e) => {
-                if (pathname !== link.href) (e.target as HTMLElement).style.color = 'rgba(255,255,255,0.6)'
-              }}
+              onMouseEnter={(e) => { if (pathname !== link.href) (e.currentTarget as HTMLElement).style.color = '#fff' }}
+              onMouseLeave={(e) => { if (pathname !== link.href) (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.55)' }}
             >
               {link.label}
             </Link>
@@ -70,54 +60,47 @@ export default function Navbar() {
         </nav>
 
         {/* CTA */}
-        <div className="hidden md:block">
-          <Link href="/contact" className="btn-primary text-sm">
-            Book a call
-          </Link>
-        </div>
+        <Link href="/contact" className="btn-primary" style={{ padding: '10px 22px', fontSize: '0.85rem' }}>
+          Book a call
+        </Link>
 
-        {/* Mobile hamburger */}
+        {/* Mobile hamburger — hidden on desktop via inline style hack */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Menu"
+          style={{ display: 'none', flexDirection: 'column', gap: '5px', padding: '8px', background: 'none', border: 'none', cursor: 'pointer' }}
+          className="mobile-menu-btn"
         >
-          <span
-            className="w-5 h-0.5 bg-white block transition-all duration-200"
-            style={{ transform: menuOpen ? 'rotate(45deg) translateY(8px)' : 'none' }}
-          />
-          <span
-            className="w-5 h-0.5 bg-white block transition-all duration-200"
-            style={{ opacity: menuOpen ? 0 : 1 }}
-          />
-          <span
-            className="w-5 h-0.5 bg-white block transition-all duration-200"
-            style={{ transform: menuOpen ? 'rotate(-45deg) translateY(-8px)' : 'none' }}
-          />
+          {[0,1,2].map(i => (
+            <span key={i} style={{ width: '20px', height: '2px', background: '#fff', display: 'block', transition: 'all 200ms ease',
+              transform: menuOpen && i === 0 ? 'rotate(45deg) translateY(7px)' : menuOpen && i === 2 ? 'rotate(-45deg) translateY(-7px)' : 'none',
+              opacity: menuOpen && i === 1 ? 0 : 1,
+            }} />
+          ))}
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile overlay */}
       {menuOpen && (
-        <div
-          className="md:hidden fixed inset-0 top-16 z-40 flex flex-col items-center justify-center gap-8"
-          style={{ background: 'rgba(10,10,10,0.98)', backdropFilter: 'blur(20px)' }}
-        >
+        <div style={{ position: 'fixed', inset: 0, top: '72px', zIndex: 40, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '32px', background: 'rgba(10,10,10,0.98)', backdropFilter: 'blur(20px)' }}>
           {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-2xl font-semibold"
-              style={{ color: pathname === link.href ? '#AAFF00' : '#ffffff' }}
-            >
+            <Link key={link.href} href={link.href} style={{ fontSize: '1.8rem', fontWeight: 700, color: pathname === link.href ? '#AAFF00' : '#fff', textDecoration: 'none', letterSpacing: '-0.02em' }}>
               {link.label}
             </Link>
           ))}
-          <Link href="/contact" className="btn-primary mt-4">
+          <Link href="/contact" className="btn-primary" style={{ marginTop: '16px', fontSize: '1rem', padding: '14px 32px' }}>
             Book a call
           </Link>
         </div>
       )}
+
+      <style>{`
+        @media (max-width: 768px) {
+          .mobile-menu-btn { display: flex !important; }
+          nav { display: none !important; }
+          header > div > a.btn-primary { display: none !important; }
+        }
+      `}</style>
     </header>
   )
 }
