@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 
 const links = [
   { href: '/', label: 'Home' },
-  { href: '/services', label: 'Diensten' },
+  { href: '/services', label: 'Services' },
   { href: '/work', label: 'Work' },
   { href: '/contact', label: 'Contact' },
 ]
@@ -72,7 +72,7 @@ export default function Navbar() {
         {/* CTA */}
         <div className="hidden md:block">
           <Link href="/contact" className="btn-primary text-sm">
-            Plan gesprek
+            Book a call
           </Link>
         </div>
 
@@ -114,7 +114,7 @@ export default function Navbar() {
             </Link>
           ))}
           <Link href="/contact" className="btn-primary mt-4">
-            Plan gesprek
+            Book a call
           </Link>
         </div>
       )}

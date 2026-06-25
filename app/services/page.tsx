@@ -4,24 +4,24 @@ import AnimatedSection from '@/components/AnimatedSection'
 import CTABanner from '@/components/CTABanner'
 
 export const metadata: Metadata = {
-  title: 'Diensten — Propelr',
-  description: 'Premium websites en AI automations. Gebouwd voor resultaat, geleverd op tijd.',
+  title: 'Services — Propelr',
+  description: 'Premium websites and AI automations. Built for results, delivered on time.',
 }
 
 const websiteFeatures = [
-  'Op maat gemaakt design',
-  'Razendsnelle performance (Lighthouse 95+)',
-  'Mobiel-first en SEO-geoptimaliseerd',
-  'CMS integratie mogelijk',
-  'Conversie-geoptimaliseerde structuur',
+  'Fully custom design',
+  'Blazing-fast performance (Lighthouse 95+)',
+  'Mobile-first and SEO-optimized',
+  'CMS integration available',
+  'Conversion-optimized structure',
 ]
 
 const aiFeatures = [
-  'Lead qualification en nurturing op autopilot',
-  'AI klantenservice agents',
-  'CRM integraties (HubSpot, Notion, etc.)',
-  'E-mail flows en follow-up systemen',
-  'Custom dashboards en rapportages',
+  'Lead qualification and nurturing on autopilot',
+  'AI customer service agents',
+  'CRM integrations (HubSpot, Notion, etc.)',
+  'Email flows and follow-up systems',
+  'Custom dashboards and reporting',
 ]
 
 function FeatureCheck({ text }: { text: string }) {
@@ -83,11 +83,11 @@ export default function ServicesPage() {
         <div className="relative max-w-4xl mx-auto px-6">
           <AnimatedSection>
             <p className="text-xs font-medium uppercase tracking-widest mb-4" style={{ color: '#AAFF00' }}>
-              Onze diensten
+              Our services
             </p>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Onze Diensten</h1>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Our Services</h1>
             <p className="text-xl" style={{ color: 'rgba(255,255,255,0.5)' }}>
-              Gebouwd voor resultaat. Geleverd op tijd.
+              Built for results. Delivered on time.
             </p>
           </AnimatedSection>
         </div>
@@ -102,21 +102,21 @@ export default function ServicesPage() {
             </AnimatedSection>
             <AnimatedSection delay={0.1}>
               <p className="text-xs font-medium uppercase tracking-widest mb-4" style={{ color: '#AAFF00' }}>
-                Dienst 01
+                Service 01
               </p>
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Premium Websites</h2>
               <p className="text-lg mb-8 leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>
-                Geen Squarespace-templates. Wij bouwen razendsnelle, op maat gemaakte websites die jouw bezoekers overtuigen en converteren.
+                No Squarespace templates. We build blazing-fast, fully custom websites that convince and convert your visitors.
               </p>
               <ul className="flex flex-col gap-4 mb-8">
                 {websiteFeatures.map((f) => <FeatureCheck key={f} text={f} />)}
               </ul>
               <div className="flex flex-wrap gap-3 mb-8">
-                <PricingBadge text="Vanaf €1.499 eenmalig" />
-                <PricingBadge text="of vanaf €97/maand" />
+                <PricingBadge text="From €1,499 one-time" />
+                <PricingBadge text="or from €97/month" />
               </div>
               <Link href="/contact" className="btn-primary">
-                Start jouw website
+                Start your website
               </Link>
             </AnimatedSection>
           </div>
@@ -132,20 +132,20 @@ export default function ServicesPage() {
             </AnimatedSection>
             <AnimatedSection className="lg:order-1">
               <p className="text-xs font-medium uppercase tracking-widest mb-4" style={{ color: '#AAFF00' }}>
-                Dienst 02
+                Service 02
               </p>
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">AI Automations</h2>
               <p className="text-lg mb-8 leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>
-                Stop met repetitieve taken. Onze AI systemen werken 24/7 zodat jij je kunt focussen op wat echt telt — jouw klanten.
+                Stop doing repetitive tasks. Our AI systems work 24/7 so you can focus on what really matters — your clients.
               </p>
               <ul className="flex flex-col gap-4 mb-8">
                 {aiFeatures.map((f) => <FeatureCheck key={f} text={f} />)}
               </ul>
               <div className="flex flex-wrap gap-3 mb-8">
-                <PricingBadge text="Vanaf €499/maand" />
+                <PricingBadge text="From €499/month" />
               </div>
               <Link href="/contact" className="btn-primary">
-                Start met automatiseren
+                Start automating
               </Link>
             </AnimatedSection>
           </div>

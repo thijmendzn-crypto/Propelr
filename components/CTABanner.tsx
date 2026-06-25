@@ -12,13 +12,13 @@ export default function CTABanner() {
             className="text-4xl md:text-6xl font-bold mb-4 tracking-tight"
             style={{ color: '#000000' }}
           >
-            Klaar om te groeien?
+            Ready to grow?
           </h2>
           <p
             className="text-lg md:text-xl mb-10 max-w-2xl mx-auto"
             style={{ color: 'rgba(0,0,0,0.65)' }}
           >
-            Plan een gratis strategiegesprek en ontdek wat Propelr voor jouw bedrijf kan doen.
+            Book a free strategy call and discover what Propelr can do for your business.
           </p>
           <Link
             href="/contact"
@@ -35,7 +35,7 @@ export default function CTABanner() {
             onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = '0.85')}
             onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = '1')}
           >
-            Plan nu gratis gesprek
+            Book a free call
           </Link>
         </AnimatedSection>
       </div>

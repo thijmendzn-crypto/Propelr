@@ -7,6 +7,8 @@ import TestimonialCard from '@/components/TestimonialCard'
 import CTABanner from '@/components/CTABanner'
 import CountUp from '@/components/CountUp'
 
+const CALENDLY_URL = 'https://calendly.com/propelr/30min'
+
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
   animate: { opacity: 1, y: 0 },
@@ -22,8 +24,8 @@ const serviceCards = [
       </svg>
     ),
     title: 'Premium Websites',
-    body: 'Geen template-sites. Wij bouwen op maat gemaakte, razendsnelle websites die bezoekers omzetten in betalende klanten.',
-    tags: ['Next.js', 'Conversie-geoptimaliseerd', 'SEO-ready'],
+    body: 'No templates. We build custom, blazing-fast websites that turn visitors into paying customers.',
+    tags: ['Next.js', 'Conversion-optimized', 'SEO-ready'],
     featured: false,
   },
   {
@@ -35,8 +37,8 @@ const serviceCards = [
       </svg>
     ),
     title: 'AI Automations',
-    body: 'Van lead nurturing tot klantenservice — wij automatiseren de repetitieve taken zodat jij je focust op groei.',
-    tags: ['AI Agents', 'Zapier / Make', '24/7 actief'],
+    body: 'From lead nurturing to customer service — we automate the repetitive work so you can focus on growth.',
+    tags: ['AI Agents', 'Zapier / Make', 'Active 24/7'],
     featured: false,
   },
   {
@@ -48,36 +50,36 @@ const serviceCards = [
         <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
       </svg>
     ),
-    title: 'Alles in één',
-    body: 'Website + AI systemen gecombineerd. De complete digitale infrastructuur voor bedrijven die serieus willen groeien.',
-    tags: ['Meest gekozen', 'Full-service'],
+    title: 'All-in-One',
+    body: 'Website + AI systems combined. The complete digital infrastructure for businesses ready to scale.',
+    tags: ['Most popular', 'Full-service'],
     featured: true,
   },
 ]
 
 const steps = [
-  { num: '01', title: 'Gesprek', body: 'Wij leren jouw bedrijf kennen en bepalen wat de beste aanpak is.' },
-  { num: '02', title: 'Bouwen', body: 'Ons team gaat direct aan de slag. Jij wordt op de hoogte gehouden.' },
-  { num: '03', title: 'Lanceren', body: 'Wij lanceren, optimaliseren, en blijven beschikbaar.' },
+  { num: '01', title: 'Discovery', body: 'We get to know your business and determine the best approach.' },
+  { num: '02', title: 'Build', body: 'Our team gets to work immediately. You stay in the loop.' },
+  { num: '03', title: 'Launch', body: 'We launch, optimize, and stay available for you.' },
 ]
 
 const stats = [
-  { end: '12+', label: 'Projecten opgeleverd' },
-  { end: '3x', label: 'Gemiddelde ROI voor klanten' },
-  { end: '48u', label: 'Gemiddelde oplevering eerste versie' },
-  { end: '100%', label: 'Klanttevredenheid' },
+  { end: '12+', label: 'Projects delivered' },
+  { end: '3x', label: 'Average client ROI' },
+  { end: '48h', label: 'Average first version delivery' },
+  { end: '100%', label: 'Client satisfaction' },
 ]
 
 const testimonials = [
   {
-    quote: 'Propelr heeft onze website volledig getransformeerd. Binnen een maand hadden we 40% meer aanvragen.',
+    quote: 'Propelr completely transformed our website. Within a month we had 40% more enquiries.',
     name: 'Mark de Vries',
-    company: 'Eigenaar VD Loodgieters',
+    company: 'Owner, VD Plumbing',
   },
   {
-    quote: 'De AI automation die ze gebouwd hebben bespaart ons 10+ uur per week. Absolute aanrader.',
+    quote: 'The AI automation they built saves us 10+ hours a week. Highly recommend.',
     name: 'Sarah Jansen',
-    company: 'CEO FreshBrands NL',
+    company: 'CEO, FreshBrands NL',
   },
 ]
 
@@ -111,15 +113,15 @@ export default function HomePage() {
             className="text-lg md:text-xl leading-relaxed mb-10 max-w-2xl mx-auto"
             style={{ color: 'rgba(255,255,255,0.6)' }}
           >
-            Propelr bouwt premium websites en AI automations voor bedrijven die willen schalen — niet bijhouden.
+            Propelr builds premium websites and AI automations for businesses that want to scale — not just keep up.
           </motion.p>
           <motion.div {...fadeUp(0.3)} className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link href="/work" className="btn-primary text-sm font-semibold">
-              Bekijk ons werk
+              View our work
             </Link>
-            <Link href="/contact" className="btn-secondary text-sm">
-              Plan een gesprek
-            </Link>
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary text-sm">
+              Book a free call
+            </a>
           </motion.div>
           <motion.div {...fadeUp(0.4)} className="flex items-center justify-center gap-2">
             <div className="flex gap-0.5">
@@ -130,7 +132,7 @@ export default function HomePage() {
               ))}
             </div>
             <span className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>
-              Vertrouwd door groeiende bedrijven in NL &amp; VS
+              Trusted by growing businesses in NL &amp; US
             </span>
           </motion.div>
         </div>
@@ -140,9 +142,9 @@ export default function HomePage() {
       <section className="py-24 md:py-32" style={{ background: '#0A0A0A' }}>
         <div className="max-w-7xl mx-auto px-6">
           <AnimatedSection className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Wat wij bouwen</h2>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">What we build</h2>
             <p className="text-lg" style={{ color: 'rgba(255,255,255,0.5)' }}>
-              Twee producten. Eén doel: jouw bedrijf laten groeien.
+              Two products. One goal: grow your business.
             </p>
           </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -194,7 +196,7 @@ export default function HomePage() {
       <section className="py-24 md:py-32" style={{ background: '#111111' }}>
         <div className="max-w-7xl mx-auto px-6">
           <AnimatedSection className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Resultaten die spreken</h2>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Results that speak</h2>
           </AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, i) => (
@@ -210,7 +212,7 @@ export default function HomePage() {
       <section className="py-24 md:py-32" style={{ background: '#0A0A0A' }}>
         <div className="max-w-7xl mx-auto px-6">
           <AnimatedSection className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Hoe het werkt</h2>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">How it works</h2>
           </AnimatedSection>
           <div className="relative grid grid-cols-1 md:grid-cols-3 gap-10">
             <div
@@ -225,7 +227,7 @@ export default function HomePage() {
                       {step.num}
                     </span>
                     <span className="absolute top-5 left-0 text-xs font-medium uppercase tracking-widest" style={{ color: '#AAFF00' }}>
-                      Stap {step.num}
+                      Step {step.num}
                     </span>
                   </div>
                   <h3 className="text-2xl font-semibold">{step.title}</h3>
@@ -241,7 +243,7 @@ export default function HomePage() {
       <section className="py-24 md:py-32" style={{ background: '#111111' }}>
         <div className="max-w-7xl mx-auto px-6">
           <AnimatedSection className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Wat onze klanten zeggen</h2>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">What our clients say</h2>
           </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {testimonials.map((t, i) => (

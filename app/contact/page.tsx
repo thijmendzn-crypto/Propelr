@@ -4,13 +4,13 @@ import AnimatedSection from '@/components/AnimatedSection'
 
 export const metadata: Metadata = {
   title: 'Contact — Propelr',
-  description: 'Plan een gratis strategiegesprek met Propelr. Geen verplichtingen, antwoord binnen 24u.',
+  description: 'Book a free strategy call with Propelr. No obligations, response within 24h.',
 }
 
 const benefits = [
-  'Gratis strategiegesprek (30 min)',
-  'Geen verplichtingen',
-  'Antwoord binnen 24u',
+  'Free strategy call (30 min)',
+  'No obligations',
+  'Response within 24h',
 ]
 
 export default function ContactPage() {
@@ -28,9 +28,9 @@ export default function ContactPage() {
           <p className="text-xs font-medium uppercase tracking-widest mb-4" style={{ color: '#AAFF00' }}>
             Contact
           </p>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4">Laten we praten</h1>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4">Let&apos;s talk</h1>
           <p className="text-xl" style={{ color: 'rgba(255,255,255,0.5)' }}>
-            Plan een gratis gesprek en ontdek wat Propelr voor jou kan doen.
+            Book a free call and discover what Propelr can do for you.
           </p>
         </AnimatedSection>
 
@@ -38,7 +38,7 @@ export default function ContactPage() {
           {/* Left: Info */}
           <AnimatedSection className="flex flex-col gap-8">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Plan een gratis gesprek</h2>
+              <h2 className="text-3xl font-bold mb-6">Book a free call</h2>
               <ul className="flex flex-col gap-4">
                 {benefits.map((b) => (
                   <li key={b} className="flex items-center gap-3">
@@ -54,14 +54,14 @@ export default function ContactPage() {
               </ul>
             </div>
             <div className="glass-card p-6">
-              <p className="text-sm mb-3" style={{ color: 'rgba(255,255,255,0.5)' }}>Direct bereikbaar via</p>
+              <p className="text-sm mb-3" style={{ color: 'rgba(255,255,255,0.5)' }}>Reach us directly at</p>
               <a href="mailto:hello@propelr.io" className="text-lg font-semibold" style={{ color: '#AAFF00' }}>
                 hello@propelr.io
               </a>
             </div>
           </AnimatedSection>
 
-          {/* Right: Form */}
+          {/* Right: Form + Calendly */}
           <AnimatedSection delay={0.1}>
             <ContactForm />
           </AnimatedSection>

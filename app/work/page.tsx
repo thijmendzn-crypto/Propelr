@@ -3,59 +3,58 @@
 import { useState } from 'react'
 import AnimatedSection from '@/components/AnimatedSection'
 import CTABanner from '@/components/CTABanner'
-import Link from 'next/link'
 
 const projects = [
   {
-    title: 'VD Loodgieters — Website Redesign',
-    industry: 'Loodgietersbedrijf',
-    result: '+40% conversies in 30 dagen',
+    title: 'VD Plumbing — Website Redesign',
+    industry: 'Plumbing Services',
+    result: '+40% conversions in 30 days',
     category: 'Websites',
     color: '#1a2a1a',
   },
   {
     title: 'FreshBrands NL — AI Lead System',
     industry: 'Marketing & Branding',
-    result: '10+ uur bespaard per week',
+    result: '10+ hours saved per week',
     category: 'AI Automations',
     color: '#1a1a2a',
   },
   {
     title: 'TechFlow B.V. — Full-Stack Platform',
     industry: 'SaaS / Tech',
-    result: '3x meer qualified leads',
+    result: '3x more qualified leads',
     category: 'Websites',
     color: '#1a2020',
   },
   {
     title: 'GreenOps — Automation Suite',
     industry: 'Operations & Logistics',
-    result: '60% minder handmatig werk',
+    result: '60% less manual work',
     category: 'AI Automations',
     color: '#201a1a',
   },
   {
     title: 'Studio Voss — Portfolio + Booking',
     industry: 'Creative Agency',
-    result: '+85% website-traffic',
+    result: '+85% website traffic',
     category: 'Websites',
     color: '#1e1a1e',
   },
   {
-    title: 'Maxflow CRM — AI Klantenservice',
+    title: 'Maxflow CRM — AI Customer Service',
     industry: 'CRM / Sales',
-    result: '24/7 klantondersteuning actief',
+    result: '24/7 customer support active',
     category: 'AI Automations',
     color: '#1a1e1a',
   },
 ]
 
-const categories = ['Alles', 'Websites', 'AI Automations']
+const categories = ['All', 'Websites', 'AI Automations']
 
 export default function WorkPage() {
-  const [active, setActive] = useState('Alles')
+  const [active, setActive] = useState('All')
 
-  const filtered = active === 'Alles' ? projects : projects.filter((p) => p.category === active)
+  const filtered = active === 'All' ? projects : projects.filter((p) => p.category === active)
 
   return (
     <>
@@ -73,9 +72,9 @@ export default function WorkPage() {
             <p className="text-xs font-medium uppercase tracking-widest mb-4" style={{ color: '#AAFF00' }}>
               Portfolio
             </p>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Ons Werk</h1>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Our Work</h1>
             <p className="text-xl" style={{ color: 'rgba(255,255,255,0.5)' }}>
-              Projecten die resultaten leveren
+              Projects that deliver results
             </p>
           </AnimatedSection>
         </div>
@@ -120,7 +119,6 @@ export default function WorkPage() {
                     el.style.borderColor = 'rgba(255,255,255,0.08)'
                   }}
                 >
-                  {/* Image placeholder */}
                   <div
                     className="w-full aspect-video flex items-center justify-center relative"
                     style={{ background: project.color }}
@@ -141,18 +139,15 @@ export default function WorkPage() {
                       {project.category}
                     </span>
                   </div>
-
-                  {/* Content */}
                   <div className="p-6">
                     <p className="text-xs mb-1" style={{ color: 'rgba(255,255,255,0.4)' }}>{project.industry}</p>
                     <h3 className="text-lg font-semibold mb-3">{project.title}</h3>
                     <p className="text-sm font-medium mb-4" style={{ color: '#AAFF00' }}>{project.result}</p>
                     <span
-                      className="text-sm font-medium inline-flex items-center gap-1.5 transition-colors duration-200"
+                      className="text-sm font-medium inline-flex items-center gap-1.5"
                       style={{ color: 'rgba(255,255,255,0.5)' }}
                     >
-                      Bekijk case study
-                      <span>→</span>
+                      View case study →
                     </span>
                   </div>
                 </div>
